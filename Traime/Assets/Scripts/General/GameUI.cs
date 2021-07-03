@@ -41,6 +41,10 @@ namespace Traime
                         coloredUIElement.SetColor(colorPalette.foregroundColor);
                         break;
 
+                    case ColoredUIElement.Type.Highlight:
+                        coloredUIElement.SetColor(colorPalette.highlightColor);
+                        break;
+
                     case ColoredUIElement.Type.Text:
                         coloredUIElement.SetColor(colorPalette.textColor);
                         break;

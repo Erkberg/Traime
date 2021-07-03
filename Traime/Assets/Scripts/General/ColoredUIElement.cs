@@ -28,6 +28,7 @@ namespace Traime
             LightBackground,
             DarkBackground,
             Foreground,
+            Highlight,
             Text
         }
     }

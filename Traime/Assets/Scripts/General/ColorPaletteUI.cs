@@ -12,6 +12,7 @@ namespace Traime
         public Color lightBackgroundColor;
         public Color darkBackgroundColor;
         public Color foregroundColor;
+        public Color highlightColor;
         public Color textColor;
     }
 }
