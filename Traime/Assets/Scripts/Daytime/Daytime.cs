@@ -35,7 +35,7 @@ namespace Traime
 
         private void Update()
         {
-            currentTimeText.text = DateTimeHelper.GetCurrentTimeString();            
+            currentTimeText.text = DateTimeHelper.GetCurrentTimeStringHoursMinutes();            
             fillCurrentTime.fillAmount = DateTimeHelper.GetPercentageOfDayPassed();
             CheckCurrentSegment();
         }

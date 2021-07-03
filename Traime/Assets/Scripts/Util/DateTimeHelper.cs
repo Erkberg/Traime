@@ -9,9 +9,14 @@ namespace Traime
     {
         private static System.Globalization.DateTimeFormatInfo dateTimeFormatInfo = System.Globalization.DateTimeFormatInfo.InvariantInfo;
 
-        public static string GetCurrentTimeString()
+        public static string GetCurrentTimeStringHoursMinutes()
         {
             return DateTime.Now.ToString("HH:mm", dateTimeFormatInfo);
+        }
+
+        public static string GetTimeSpanStringHoursMinutesSeconds(TimeSpan timeSpan)
+        {
+            return timeSpan.ToString(@"hh\:mm\:ss");
         }
 
         public static float GetPercentageOfDayPassed()
