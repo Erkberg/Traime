@@ -8,28 +8,35 @@ namespace Traime
     [System.Serializable]
     public class ChunkWorktime
     {
-        public DateTime startTime;
-        public DateTime endTime;
+        public int id;
+
+        public TimeOfDay startTime;
+        public TimeOfDay endTime;
+
+        public ChunkWorktime(int id)
+        {
+            this.id = id;
+        }
 
         public void Start()
         {
-            startTime = DateTime.Now;
+            startTime = new TimeOfDay(DateTime.Now);
         }
 
         public void End()
         {
-            endTime = DateTime.Now;
+            endTime = new TimeOfDay(DateTime.Now);
         }
 
-        public TimeSpan GetTimeSpan()
+        public TimeOfDay GetDuration()
         {            
-            if(endTime != DateTime.MinValue)
+            if(endTime != null)
             {
                 return endTime - startTime;
             }
             else
             {
-                return DateTime.Now - startTime;
+                return new TimeOfDay(DateTime.Now) - startTime;
             }
         }
     }
