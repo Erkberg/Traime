@@ -24,16 +24,39 @@ namespace Traime
             hour = h;
             minute = m;
             second = s;
+        }
 
-            if(second < 0)
-            {
-                hour--;
-                second += 60;
-            }
-            else if(second > 60)
+        public static TimeOfDay operator +(TimeOfDay tod1, TimeOfDay tod2) 
+        {
+            int hour = tod1.hour + tod2.hour;
+            int minute = tod1.minute + tod2.minute;
+            int second = tod1.second + tod2.second;
+            
+            if(second > 60)
             {
                 minute++;
                 second -= 60;
+            }
+
+            if(minute > 60)
+            {
+                hour++;
+                minute -= 60;
+            }
+
+            return new TimeOfDay(hour, minute, second);
+        }
+
+        public static TimeOfDay operator -(TimeOfDay tod1, TimeOfDay tod2) 
+        {
+            int hour = tod1.hour - tod2.hour;
+            int minute = tod1.minute - tod2.minute;
+            int second = tod1.second - tod2.second;
+
+            if(second < 0)
+            {
+                minute--;
+                second += 60;
             }
 
             if(minute < 0)
@@ -41,22 +64,20 @@ namespace Traime
                 hour--;
                 minute += 60;
             }
-            else if(minute > 60)
-            {
-                hour++;
-                minute -= 60;
-            }
-                
+
+            return new TimeOfDay(hour, minute, second);
         }
 
-        public static TimeOfDay operator +(TimeOfDay tod1, TimeOfDay tod2) 
+        public static bool operator <(TimeOfDay tod1, TimeOfDay tod2) 
         {
-            return new TimeOfDay(tod1.hour + tod2.hour, tod1.minute + tod2.minute, tod1.second + tod2.second);
+            return (tod1.hour < tod2.hour) || (tod1.hour == tod2.hour && tod1.minute < tod2.minute) || 
+                    (tod1.hour == tod2.hour && tod1.minute == tod2.minute && tod1.second < tod2.second);
         }
 
-        public static TimeOfDay operator -(TimeOfDay tod1, TimeOfDay tod2) 
+        public static bool operator >(TimeOfDay tod1, TimeOfDay tod2) 
         {
-            return new TimeOfDay(tod1.hour - tod2.hour, tod1.minute - tod2.minute, tod1.second - tod2.second);
+            return (tod1.hour > tod2.hour) || (tod1.hour == tod2.hour && tod1.minute > tod2.minute) || 
+                    (tod1.hour == tod2.hour && tod1.minute == tod2.minute && tod1.second > tod2.second);
         }
 
         public override string ToString()

@@ -43,7 +43,7 @@ namespace Traime
         {
             if(currentChunk != null)
                 timeChunkText.text = currentChunk.GetDuration().ToString();
-                
+
             timeTodayText.text = currentDay.GetDuration().ToString();
             timeWeekText.text = currentWeek.GetDuration().ToString();
         }
@@ -74,6 +74,7 @@ namespace Traime
 
         private void OnDestroy() 
         {
+            OnStopButtonPressed();
             Save();
         }
 
