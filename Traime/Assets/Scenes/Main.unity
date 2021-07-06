@@ -6544,7 +6544,7 @@ MonoBehaviour:
   playButton: {fileID: 1424688989}
   stopButton: {fileID: 2049800440}
   audioSource: {fileID: 1100088203}
-  minutes: 1
+  minutes: 30
   passedText: {fileID: 355700421}
   totalText: {fileID: 986959244}
 --- !u!82 &1100088203
